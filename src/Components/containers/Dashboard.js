@@ -8,7 +8,8 @@ const Dashboard = () => {
       <br/>
       <br/>
       <br/>
-      <Auth />
+      {/* <Auth /> */}
+      
     </div>
   )
 }

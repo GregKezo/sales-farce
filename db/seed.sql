@@ -33,7 +33,7 @@ create table task (
     id serial PRIMARY KEY
     ,doer int references users(id)
     ,doee int references client(id)
-    ,do_by time
+    ,do_by timestamp
     ,task_type varchar(100)
     ,to_do text
     ,is_done BOOLEAN
