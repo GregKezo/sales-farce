@@ -33,8 +33,8 @@ app.post('/auth/logout', authCtrl.logout)
 
 
 //client info
-app.get('/api/client', clientCtrl.getClients)
-app.post('/api/client', clientCtrl.newClient) //make new client
+app.get('/api/client', clientCtrl.getClients) //done
+app.post('/api/client', clientCtrl.newClient) //done
 app.put('/api/client/:id', clientCtrl.editClient) //edit existing client
 app.delete('/api/client/:id', clientCtrl.deleteClient) //delete client.
 

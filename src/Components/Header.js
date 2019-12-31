@@ -3,6 +3,7 @@ import {Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import { getUser, logoutUser } from '../redux/reducers/userReducer'
+import { getClients } from '../redux/reducers/clientReducer'
 
 
 const Header = (props) => {
@@ -14,15 +15,16 @@ const Header = (props) => {
     setPassInput('')
   }
 
-  const login = () => {
-    axios
+  const login =  () => {
+     axios
       .post('/auth/login', {email:emailInput, password: passInput})
       .then( res => {
-        console.log(res.data)
+        // console.log(res.data)
         props.getUser(res.data)
+        props.getClients()
+        // console.log(props)
       })
       .catch(err => console.log(err))
-    // resetInputs()
   }
 
   const logout = () => {
@@ -43,7 +45,7 @@ const Header = (props) => {
         logo
       </div>
       <div className="link-area">
-        {props.user.id 
+        {props.user.user.id 
         ? <>
             clients 
             {/* tasks */}
@@ -54,9 +56,9 @@ const Header = (props) => {
         : <>about</>}
       </div>
       <div>
-        {props.user.id
+        {props.user.user.id
           ?<>
-            <p>{props.user.first_name} {props.user.last_name}</p>
+            <p>{props.user.user.first_name} {props.user.user.last_name}</p>
             <button onClick={logout}>logout</button>
           </>
       
@@ -83,5 +85,5 @@ const mapStateToProps = reduxState => {
 }
 
 
-export default withRouter(connect(mapStateToProps, {getUser, logoutUser})(Header))
+export default withRouter(connect(mapStateToProps, {getUser, logoutUser, getClients})(Header))
 
