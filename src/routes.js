@@ -6,6 +6,7 @@ import Client from './Components/Client'
 // import Portfolio from './Components/Portfolio'
 import Task from './Components/Task'
 import Dashboard from './Components/containers/Dashboard'
+import About from './Components/About'
 
 
 export default(
@@ -15,6 +16,7 @@ export default(
     <Route component={Client} path='/client' />
     {/* <Route component={Portfolio} path='/portfolio' /> */}
     <Route component={Task} path='/task' />
-    {/* <Route component={} path='/' /> */}
+    <Route component={About} path='/about' />
+
   </Switch>
 )

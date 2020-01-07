@@ -33,6 +33,7 @@ const Header = (props) => {
       .then( res => {
         console.log(res.data)
         props.logoutUser()
+        //todo: remove clients from state
       })
       .catch( err => console.log(err) )
       resetInputs()
@@ -49,11 +50,11 @@ const Header = (props) => {
         ? <>
             clients 
             {/* tasks */}
-            analytics
-            profile
-            about
+            {/* analytics
+            profile */}
+            <Link to='/about'>About</Link>
           </> 
-        : <>about</>}
+        : <><Link to='/about'>About</Link></>}
       </div>
       <div>
         {props.user.user.id
