@@ -13,3 +13,41 @@
   height: 50px;
   background-color: rgb(0, 179, 223);
 }
+
+.dashboard {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+.client-card {
+  margin-top: 20px;
+  height: 200px;
+  width: 300px;
+  border: 1px #02252e solid;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border-radius: 5px;
+}
+
+.client-name {
+  background-color: #028aac;
+  height: 40px;
+  color: #e0f9ff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-info {
+  color: #02252e;
+  display: flex;
+  flex-direction: column;
+
+}

@@ -1,11 +1,18 @@
 import React, {useState} from 'react'
-import {Link, withRouter} from 'react'
-import {connect} from 'react-redux'
+// import {Link, withRouter} from 'react'
+// import {connect} from 'react-redux'
 
 
 const ClientCard = (props) => {
+  // let {ele} = props.ele
   return(
-    <div>
+    <div className="client-card">
+      <div className="client-name">{props.ele.first_name} {props.ele.last_name}</div>
+      <div className="client-info">
+          <div>{props.ele.email}</div>
+          <div>{props.ele.phone_number}</div>
+      </div>
+      
       
     </div>
   )
@@ -13,8 +20,8 @@ const ClientCard = (props) => {
 }
 
 
-const mapStateToProps = reduxState => {
-  return reduxState
-}
+// const mapStateToProps = reduxState => {
+//   return reduxState
+// }
 
-export default withRouter(connect(mapStateToProps, {})(ClientCard))
+export default ClientCard
