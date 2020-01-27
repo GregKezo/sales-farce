@@ -1,80 +1,54 @@
 import React, {useState} from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import {Link, withRouter, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-import axios from 'axios'
-import { getUser, logoutUser } from '../redux/reducers/userReducer'
-import { getClients } from '../redux/reducers/clientReducer'
+import { getUser, logoutUser, login } from '../redux/reducers/userReducer'
+import { getClients, logoutClients } from '../redux/reducers/clientReducer'
 
 
 const Header = (props) => {
-  const [emailInput, setEmailInput] = useState('')
-  const [passInput, setPassInput] = useState('')
+  // const [emailInput, setEmailInput] = useState('')
+  // const [passInput, setPassInput] = useState('')
   
-  const resetInputs = () => {
-    setEmailInput('')
-    setPassInput('')
+  // const resetInputs = () => {
+  //   setEmailInput('')
+  //   setPassInput('')
+  // }
+
+  // const loginUser =  async (e) => {
+  //   e.preventDefault()
+  //   await props.login(emailInput, passInput)
+  //   await props.getClients()
+  // }
+
+  const logout = e => {
+      e.preventDefault()
+      props.logoutUser()
+      props.logoutClients()
+      // resetInputs()
+      console.log(props)
+      return props.history.push('/')
   }
 
-  const login =  () => {
-     axios
-      .post('/auth/login', {email:emailInput, password: passInput})
-      .then( res => {
-        // console.log(res.data)
-        props.getUser(res.data)
-        props.getClients()
-        // console.log(props)
-      })
-      .catch(err => console.log(err))
-  }
-
-  const logout = () => {
-    axios
-      .post('auth/logout')
-      .then( res => {
-        console.log(res.data)
-        props.logoutUser()
-        //todo: remove clients from state
-      })
-      .catch( err => console.log(err) )
-      resetInputs()
-  }
-
+  // if(!props.user.user) return props.user.user = {}
 
   return(
     <section className="header">
       <div className="logo">
-        logo
+        <Link to='/'>Sales Farce</Link>
       </div>
       <div className="link-area">
-        {props.user.user.id 
-        ? <>
-            clients 
-            {/* tasks */}
-            {/* analytics
-            profile */}
-            <Link to='/about'>About</Link>
-          </> 
-        : <><Link to='/about'>About</Link></>}
+       <Link to='/about'>About</Link>
       </div>
       <div>
         {props.user.user.id
           ?<>
-            <p>{props.user.user.first_name} {props.user.user.last_name}</p>
-            <button onClick={logout}>logout</button>
+            <div><Link to='/profile'>Profile</Link></div>
+            
+            <div><button className="button" onClick={e => logout(e)}>logout</button></div>
           </>
       
           :<>
-           <input
-            type='text'
-            placeholder='Email'
-            value={emailInput}
-            onChange={ e => setEmailInput(e.target.value)} />
-          <input
-            type='password'
-            placeholder='Password'
-            value={passInput}
-            onChange={ e => setPassInput(e.target.value)} />
-          <button onClick={login}>Login</button>
+           
           </>}
       </div>
     </section>
@@ -86,5 +60,5 @@ const mapStateToProps = reduxState => {
 }
 
 
-export default withRouter(connect(mapStateToProps, {getUser, logoutUser, getClients})(Header))
+export default withRouter(connect(mapStateToProps, {getUser, logoutUser, getClients, logoutClients, login})(Header))
 

@@ -6,6 +6,13 @@
     res.status(200).send(clients)
   },
 
+  getClient: async (req, res) => {
+    const {clientid} = req.params
+    const db = req.app.get('db')
+    const [client] = await db.get_one_client(clientid)
+    res.status(200).send(client)
+  },
+
   newClient: async(req, res) => {
     const db = req.app.get('db')
     const { 

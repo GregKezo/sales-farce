@@ -1,7 +1,7 @@
 create table users (
     id serial primary key
     ,is_admin BOOLEAN
-    ,email varchar(100)
+    ,email varchar(100) unique
     ,password varchar(255)
     ,reports_to INT
     ,first_name varchar(30)
@@ -14,7 +14,7 @@ create table client (
     id serial primary key
     ,first_name varchar(50)
     ,last_name varchar(50)
-    ,client_of int references users(id)
+    ,client_of int
     ,phone_number varchar(20)
     ,email varchar(100)
     ,notes text
@@ -33,7 +33,7 @@ create table task (
     id serial PRIMARY KEY
     ,doer int references users(id)
     ,doee int references client(id)
-    ,do_by timestamp
+    ,deadline timestamp
     ,task_type varchar(100)
     ,to_do text
     ,is_done BOOLEAN

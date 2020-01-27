@@ -1,51 +1,64 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
-import { withRouter } from 'react-router-dom'
-import { getUser } from '../redux/reducers/userReducer'
+import { withRouter, Redirect } from 'react-router-dom'
+import { getUser, login, signup } from '../redux/reducers/userReducer'
+import { getClients } from '../redux/reducers/clientReducer'
 
 const Auth = (props) => {
   const [emailInput, setEmailInput] = useState('')
   const [passInput, setPassInput] = useState('')
   
-  const login = () => {
-    axios
-      .post('/auth/login', {email:emailInput, password: passInput})
-      .then( res => {
-        console.log(res.data)
-        props.getUser(res.data)
-      })
-      .catch(err => console.log(err))
-    
+  const resetInputs = () => {
+    setEmailInput('')
+    setPassInput('')
   }
 
-  const register = () => {
-    axios
-      .post('/auth/register', {email: emailInput, password: passInput})
-      .then( res => {
-        console.log(res.data)
-        props.getUser(res.data)
-      })
-      .catch( err => console.log(err))
+
+  const loginUser =  async (e) => {
+    e.preventDefault()
+    await props.login(emailInput, passInput)
+    await props.getClients()
+    resetInputs()
   }
 
+  const register = async (e) => {
+    e.preventDefault()
+    await props.signup(emailInput, passInput)
+    resetInputs()
+  }
+
+//   const logout = e => {
+//     e.preventDefault()
+//     props.logoutUser()
+//     props.logoutClients()
+//     resetInputs()
+// }
+
+const { user } = props.user
+if (user.loggedIn) return <Redirect to='/'/>
   return(
     <div className='auth-box'>
-      <input
-        type='text'
-        placeholder='Email'
-        value={emailInput}
-        onChange={ e => setEmailInput(e.target.value)} />
-      <input
-        type='password'
-        placeholder='Password'
-        value={passInput}
-        onChange={ e => setPassInput(e.target.value)} />
-      <button onClick={login}>Login</button>
-      <button onClick={register}>Register</button>
-
+      <div className="input-fields">
+        <input
+          type='text'
+          placeholder='Email'
+          value={emailInput}
+          onChange={ e => setEmailInput(e.target.value)} />
+        <input
+          type='password'
+          placeholder='Password'
+          value={passInput}
+          onChange={ e => setPassInput(e.target.value)} />
+      </div>
+      <div className="button-area">
+        <button onClick={e => loginUser(e)}>Login</button>
+        <button onClick={e => register(e)}>Register</button>
+      </div>
     </div>
   )
 }
+const mapStateToProps = reduxState => {
+  return reduxState
+}
 
-export default withRouter(connect(null, {getUser} )(Auth))
+export default withRouter(connect(mapStateToProps, {getUser, signup, getClients, login})(Auth))

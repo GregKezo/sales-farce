@@ -1,6 +1,6 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux'
 import userReducer from './reducers/userReducer'
 import clientReducer from './reducers/clientReducer'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
 import promiseMiddleware from 'redux-promise-middleware'
 import { composeWithDevTools } from 'redux-devtools-extension'
 

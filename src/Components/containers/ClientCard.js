@@ -1,27 +1,46 @@
 import React, {useState} from 'react'
-// import {Link, withRouter} from 'react'
-// import {connect} from 'react-redux'
+import {Link, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 
 const ClientCard = (props) => {
   // let {ele} = props.ele
+
+
+
+
   return(
     <div className="client-card">
-      <div className="client-name">{props.ele.first_name} {props.ele.last_name}</div>
+
+
+
+      <div className="client-name">
+        <Link to={`/client/${props.ele.id}`} style={{textDecoration:'none'}}>
+          {props.ele.first_name} {props.ele.last_name}
+        </Link>
+      </div>
+
+
+
       <div className="client-info">
-          <div>{props.ele.email}</div>
-          <div>{props.ele.phone_number}</div>
+          <div className="info">Email: {props.ele.email}</div>
+          <div className="info">Phone: {props.ele.phone_number}</div>
+      
       </div>
       
-      
+      <div className="more">
+        <Link to={`/client/${props.ele.id}`} style={{textDecoration:'none'}}>
+          More Info
+        </Link>
+      </div>
     </div>
   )
 
 }
 
 
-// const mapStateToProps = reduxState => {
-//   return reduxState
-// }
+const mapStateToProps = reduxState => {
+  return reduxState.client
+}
 
-export default ClientCard
+export default withRouter(connect(mapStateToProps, {})(ClientCard))

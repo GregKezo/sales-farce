@@ -11,7 +11,26 @@
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  background-color: rgb(0, 179, 223);
+  background-color: #6DAEDB;
+  padding: 10px;
+}
+
+.logo {
+  color: #071019;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.button {
+  box-sizing: border-box;
+  padding: 7px;
+  border: 1px #071019 solid; 
+  background-color: #6DAEDB;
+  color: #071019;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: -10px;
 }
 
 .dashboard {
@@ -20,6 +39,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  font-family: Poppins, sans-serif;
 }
 
 
@@ -27,27 +47,63 @@
   margin-top: 20px;
   height: 200px;
   width: 300px;
-  border: 1px #02252e solid;
+  box-sizing: border-box;
+  padding: 10px;
+  /* border: 1px #02252e solid; */
   display: flex;
   flex-direction: column;
-  align-content: center;
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(175,194,206,0.19) 100%);
+  justify-content: space-between;
   border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px 
+  rgba(0, 0, 0, 0.068), -5px -5px 30px 7px 
+  rgba(0,0,0,0.22);
 }
 
+.client-card:hover {
+    /* transform: scale(0.9, 0.9); */
+    margin-top: -0.1px;
+    box-shadow: 1px 6px 6px 1px rgba(0, 0, 0, 0.15), 
+      -5px -5px 20px 15px rgba(0,0,0,0.22);
+}
+
+
 .client-name {
-  background-color: #028aac;
-  height: 40px;
-  color: #e0f9ff;
-  font-size: 30px;
+  /* background-color: #028aac; */
+  height: 30px;
+  color: #071019;
+  font-size: 20px;
   font-weight: 600;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .client-info {
+  margin-top: -75px;
   color: #02252e;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  
 
+}
+
+.info {
+  margin-top: 5px;
+  /* display: flex;
+  justify-content: flex-end;
+  align-content: flex-end; */
+}
+
+.more {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  color: #6DAEDB;
+}
+
+.auth-box {
+  margin-top: 50px;
 }
