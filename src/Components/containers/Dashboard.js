@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
     if (error || redirect) return <Redirect to='/login' />
     if (!Object.keys(user).length) return <div>Loading</div>
     
-    let mappedClients = this.props.client.clients.map( (ele, i) => {
+    let mappedClients = this.props.client.clients.map( (ele) => {
       return <ClientCard key={ele.id} ele={ele} />
     })
 

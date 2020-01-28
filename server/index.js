@@ -21,7 +21,7 @@ const aws = require('aws-sdk')
 
 app.use(express.json())
 
-const port = SERVER_PORT || 4040
+const port = SERVER_PORT || 4440
 
 app.use(session({
   resave: false

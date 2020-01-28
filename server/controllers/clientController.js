@@ -53,11 +53,45 @@
   },
 
   editClient: async(req, res) => {
-
+    const db = req.app.get('db')
+    const {
+      new_first_name, 
+      new_last_name, 
+      new_phone_number, 
+      new_email,
+      new_notes,
+      new_street_address,
+      new_city,
+      new_zip_code,
+      new_state,
+      new_country,
+      new_birthday
+    } = req.body
+    const { id } = req.session.user
+    const { clientid } = req.params
+    const [updatedClient] = await db.client.edit_client({
+                                new_first_name, 
+                                new_last_name, 
+                                new_phone_number, 
+                                new_email,
+                                new_notes,
+                                new_street_address,
+                                new_city,
+                                new_zip_code,
+                                new_state,
+                                new_country,
+                                new_birthday,
+                                id,
+                                clientid})
+      res.sendStatus(200)
   },
 
-  deleteClient: (req, res) => {
+  deleteClient: async (req, res) => {
+    const db = req.app.get('db')
+    const { clientid } = req.params
+    await db.client.delete_client(clientid)
 
+    res.sendStatus(200)
 
   }
 }
