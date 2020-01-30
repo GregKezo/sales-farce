@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
@@ -25,7 +25,6 @@ class Client extends React.Component {
 
     await axios.put(`/api/client/${this.props.match.params.clientid}`, body)
       .then( res => {
-        // console.log(`axios call hit`)
         console.log(res.data) 
       })
       .catch( err => console.log(err))
@@ -42,7 +41,6 @@ class Client extends React.Component {
 
 
 render() {
-  console.log(this.props)
   const [correctClient] = this.props.client.clients.filter( ele => +ele.id === +this.props.match.params.clientid)
 
   return(

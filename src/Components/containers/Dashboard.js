@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Auth from '../Auth'
-import {withRouter, Redirect} from 'react-router-dom'
+import {withRouter, Redirect, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import ClientCard from './ClientCard'
 import { getUser } from '../../redux/reducers/userReducer'
@@ -35,6 +35,7 @@ class Dashboard extends React.Component {
   return(
     
     <div className="dashboard">
+      <Link to='/new'>Add New</Link>
       {mappedClients}
       {/* <Auth /> */}
     </div>

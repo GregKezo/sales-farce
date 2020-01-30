@@ -30,6 +30,7 @@
       } = req.body
       
     const { id } = req.session.user
+
     let client = await db.client.check_client(email)
     client = client[0]
     if (client) { return res.status(400).send(`Client already exists`) }
@@ -46,9 +47,8 @@
                                 country,
                                 birthday,
                                 id})
-    const clients = await db.client.get_clients(id)
     
-    res.status(200).send(clients)
+    res.sendStatus(200)
 
   },
 

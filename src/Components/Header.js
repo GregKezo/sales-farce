@@ -6,30 +6,13 @@ import { getClients, logoutClients } from '../redux/reducers/clientReducer'
 
 
 const Header = (props) => {
-  // const [emailInput, setEmailInput] = useState('')
-  // const [passInput, setPassInput] = useState('')
-  
-  // const resetInputs = () => {
-  //   setEmailInput('')
-  //   setPassInput('')
-  // }
-
-  // const loginUser =  async (e) => {
-  //   e.preventDefault()
-  //   await props.login(emailInput, passInput)
-  //   await props.getClients()
-  // }
 
   const logout = e => {
       e.preventDefault()
       props.logoutUser()
       props.logoutClients()
-      // resetInputs()
-      console.log(props)
       return props.history.push('/')
   }
-
-  // if(!props.user.user) return props.user.user = {}
 
   return(
     <section className="header">

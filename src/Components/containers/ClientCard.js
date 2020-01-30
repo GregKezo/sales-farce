@@ -4,10 +4,6 @@ import {connect} from 'react-redux'
 
 
 const ClientCard = (props) => {
-  // let {ele} = props.ele
-
-
-
 
   return(
     <div className="client-card">
