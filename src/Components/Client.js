@@ -1,6 +1,6 @@
 import React  from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 class Client extends React.Component {
@@ -25,10 +25,11 @@ class Client extends React.Component {
 
     await axios.put(`/api/client/${this.props.match.params.clientid}`, body)
       .then( res => {
-        console.log(res.data) 
+        console.log(res.data)
       })
       .catch( err => console.log(err))
     this.toggleEdit()
+    this.props.history.push('/')
   }
 
   handleDelete = async (e) => {
