@@ -3,9 +3,29 @@ import {Link, withRouter, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { getUser, logoutUser, login } from '../redux/reducers/userReducer'
 import { getClients, logoutClients } from '../redux/reducers/clientReducer'
+import { makeStyles } from '@material-ui/core/styles';
+import {AppBar, Toolbar, Typography, Button, IconButton} from '@material-ui/core';
+import BusinessSharpIcon from '@material-ui/icons/BusinessSharp';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+
+
 
 
 const Header = (props) => {
+
+  const classes = useStyles();
 
   const logout = e => {
       e.preventDefault()
@@ -15,26 +35,42 @@ const Header = (props) => {
   }
 
   return(
-    <section className="header">
-      <div className="logo">
-        <Link to='/'>Sales Farce</Link>
-      </div>
-      <div className="link-area">
-       <Link to='/about'>About</Link>
-      </div>
-      <div>
-        {props.user.user.id
-          ?<>
-            <div><Link to='/profile'>Profile</Link></div>
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+            <IconButton 
+              edge="start" 
+              className={classes.menuButton} 
+              color="secondary" 
+              size="large"
+              onClick={ e => props.history.push('/')}
+              >
+              <BusinessSharpIcon />
+            </IconButton>
+          <Typography variant="h6" className={classes.title}
+            onClick={e=> props.history.push('/')}>
+            Sales Farce
+          </Typography>
+          <Button color="inherit" onClick={ e => props.history.push('/about')}>About</Button>
+          <div>
+          {props.user.user.id
+            ?<>
+              {/* <div><Link to='/profile'>Profile</Link></div> */}
+              
+              <div><Button color="inherit" onClick={e => logout(e)}>logout</Button></div>
+            </>
+        
+            :<>
             
-            <div><button className="button" onClick={e => logout(e)}>logout</button></div>
-          </>
-      
-          :<>
-           
-          </>}
-      </div>
-    </section>
+            </>}
+        </div>
+        </Toolbar>
+      </AppBar>
+    </div>
+
+
+
+
   )
 }
 

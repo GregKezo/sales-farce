@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #eceff1;
 }
 
 .header {
@@ -104,6 +105,41 @@
   color: #6DAEDB;
 }
 
-.auth-box {
-  margin-top: 50px;
+.Auth {
+  width: 100vw;
+  height: 100vh;
+  /* background-image: -webkit-linear-gradient(351deg,#ff70a6,#ff9770 40%,#ffd670 73%,#e9ff70);
+  background-image: -o-linear-gradient(351deg,#ff70a6,#ff9770 40%,#ffd670 73%,#e9ff70);
+  background-image: linear-gradient(99deg,#ff70a6,#ff9770 40%,#ffd670 73%,#e9ff70);
+  position: absolute; */
+  top: 0;
+  left: 0;
+  -ms-flex-pack: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.auth_container {
+  border-radius: 8px;
+  -webkit-box-shadow: 0 14px 28px 0 rgba(0,0,0,.25), 0 10px 10px 0 rgba(0,0,0,.26);
+  box-shadow: 0 14px 28px 0 rgba(0,0,0,.25), 0 10px 10px 0 rgba(0,0,0,.26);
+  background-image: linear-gradient(97deg,#eceff1,#b0bec5);
+  width: 35vw;
+  height: 55vh;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+
+.input-area {
+
+}
+
+.button-area {
+
 }

@@ -2,7 +2,7 @@ require('dotenv').config({path: __dirname + '/../.env' })
 const express = require('express')
 const app = express()
 const gs = require('gradient-string')
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, REACT_APP_STRIPE_KEY, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env
+const { SERVER_PORT, DATABASE_URL, SESSION_SECRET, REACT_APP_STRIPE_KEY, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env
 const massive = require('massive')
 const session = require('express-session')
 const authCtrl = require('./controllers/authController')
@@ -30,7 +30,7 @@ app.use(session({
   ,secret: SESSION_SECRET
 }))
 
-massive(CONNECTION_STRING).then( db => {
+massive(DATABASE_URL).then( db => {
   app.set('db', db)
   console.log(gs.mind(`It's alive! The database is alive!`))
 }).catch( err => console.log(err))

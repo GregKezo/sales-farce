@@ -1,5 +1,5 @@
 
-insert into client (client_of, first_name, last_name, phone_number, email, notes, street_address, city, zip_code, state, country, birthday, last_updated_by) values (
+insert into client (client_of, first_name, last_name, phone_number, email, notes, street_address, city, zip_code, state, country, birthday, last_updated_by) values 
   (2, 'Miltie', 'Robatham', '206-873-5853', 'mrobatham0@psu.edu', 'Eumetopias jubatus', 'Eastlawn', 'Seattle', 65568, 'WA', 'US', '4/11/1934', 2)
   ,(2, 'Ninette', 'Billingsley', '718-286-0277', 'nbillingsley1@vkontakte.ru', 'Crocuta crocuta', 'Ridgeway', 'New York City', 32336, 'NY', 'US', '11/2/1993', 3)
   ,(3, 'Omar', 'Rival', '717-718-2636', 'orival2@icq.com', 'Panthera leo', 'Park Meadow', 'Lancaster', 69891, 'PA', 'US', '2/5/1947', 2)
@@ -19,7 +19,6 @@ insert into client (client_of, first_name, last_name, phone_number, email, notes
   ,(2, 'Myca', 'Cogdon', '215-139-1750', 'mcogdong@imageshack.us', 'Amblyrhynchus cristatus', 'Havey', 'Philadelphia', 99168, 'PA', 'US', '2/27/1962', 3)
   ,(2, 'Burr', 'Castelletto', '813-112-9469', 'bcastellettoh@businesswire.com', 'Bucorvus leadbeateri', 'Nancy', 'Tampa', 76389, 'FL', 'US', '2/24/1988', 1)
   ,(1, 'Westleigh', 'Drohan', '404-826-5358', 'wdrohani@yelp.com', 'Streptopelia decipiens', 'Bultman', 'Atlanta', 93375, 'GA', 'US', '2/5/1979', 4)
-  ,(1, 'Tomasina', 'Piechnik', '612-644-0710', 'tpiechnikj@army.mil', 'Haliaetus leucogaster', 'Paget', 'Minneapolis', 59384, 'MN', 'US', '4/16/1941', 3)
-);
+  ,(1, 'Tomasina', 'Piechnik', '612-644-0710', 'tpiechnikj@army.mil', 'Haliaetus leucogaster', 'Paget', 'Minneapolis', 59384, 'MN', 'US', '4/16/1941', 3);
 
 

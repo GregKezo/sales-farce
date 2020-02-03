@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import ClientCard from './ClientCard'
 import { getUser } from '../../redux/reducers/userReducer'
 import { getClients } from '../../redux/reducers/clientReducer'
-
+import Grid from '@material-ui/core/Grid'
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -36,8 +36,10 @@ class Dashboard extends React.Component {
     
     <div className="dashboard">
       <Link to='/new'>Add New</Link>
-      {mappedClients}
-      {/* <Auth /> */}
+        <Grid container spacing={1} xs={12} sm={8} md={6} lg={4} xl={4}>
+          {mappedClients}
+        </Grid>
+
     </div>
   )
   }
