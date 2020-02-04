@@ -22,7 +22,7 @@ class NewClientForm extends React.Component {
     const body = this.state
     await axios.post(`/api/client/`, body)
       .then( res => {
-        alert('Added contact!')
+        // alert('Added contact!')
       })
       .catch( err => console.log(err))
 
@@ -50,7 +50,7 @@ render() {
           label="First name"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_first_name" 
+          name="first_name" 
           required 
           onChange={ e => this.handleInput(e) } 
           />
@@ -60,7 +60,7 @@ render() {
           label="Last name"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_last_name" 
+          name="last_name" 
           required
           onChange={ e => this.handleInput(e) } 
           />
@@ -70,7 +70,7 @@ render() {
           label="Client of"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_client_of" 
+          name="client_of" 
           required
           onChange={ e => this.handleInput(e) } 
           />
@@ -88,7 +88,7 @@ render() {
           label="Phone number"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_phone_number" 
+          name="phone_number" 
           onChange={ e => this.handleInput(e) } 
           />
       </div>
@@ -98,7 +98,7 @@ render() {
           required
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_email" 
+          name="email" 
           type="email"
           required
           onChange={ e => this.handleInput(e) } 
@@ -109,7 +109,7 @@ render() {
           label="Notes"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_notes" 
+          name="notes" 
           multiline
           rows="6"
           onChange={ e => this.handleInput(e) } 
@@ -120,7 +120,7 @@ render() {
           label="Street address"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_street_address" 
+          name="street_address" 
           onChange={ e => this.handleInput(e) }  
           />
       </div> 
@@ -129,7 +129,7 @@ render() {
           label="City"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_city" 
+          name="city" 
           onChange={ e => this.handleInput(e) } 
           />
       </div>
@@ -138,7 +138,7 @@ render() {
           label="State"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_state" 
+          name="state" 
           onChange={ e => this.handleInput(e) } 
           />
       </div>
@@ -147,7 +147,7 @@ render() {
           label="Zip code"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_zip_code" 
+          name="zip_code" 
           onChange={ e => this.handleInput(e) } 
           />
       </div>
@@ -156,7 +156,7 @@ render() {
           label="Country"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_country" 
+          name="country" 
           onChange={ e => this.handleInput(e) } 
           />
       </div>
@@ -165,7 +165,7 @@ render() {
           label="Birth date"
           style={{minWidth: 450, margin: 10}}
           variant="filled"
-          name="new_birthday" 
+          name="birthday" 
           type="date"
           onChange={ e => this.handleInput(e) } 
           />
