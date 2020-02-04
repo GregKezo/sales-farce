@@ -1,7 +1,9 @@
 import React  from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import axios from 'axios'
+import {Paper, TextField, Button} from '@material-ui/core/'
+
 
 class Client extends React.Component {
   constructor(props) {
@@ -46,14 +48,9 @@ render() {
 
   return(
     <div className="auth-box">
-      Client
+      <Paper>
+
       <p>{correctClient.first_name}</p>
-      TODO: <br/>
-        -display all client information in helpful form format <br/>
-        -ToggleEdit to flip between display and form <br/>
-        -bring in Formik(?) to handle input fields <br/>
-        -update DB with all the values in the input fields <br/>
-        -make it pretty
 
       <button className='button' onClick={ () => this.toggleEdit()}>
         {!this.state.edit ? <span>Edit</span> : <span>Cancel</span>}
@@ -68,7 +65,8 @@ render() {
           Last Name: {correctClient.last_name}
         </div>  
         <div>
-          Client of: {correctClient.client_of}
+          Client of: {correctClient.client_of} 
+          {/* make join to display names of users */}
         </div>
         <div>
           Phone: {correctClient.phone_number}
@@ -95,95 +93,137 @@ render() {
           Country: {correctClient.country}
         </div>
         <div>
-          Birthday {correctClient.birthday}
+          Birthday: {correctClient.birthday}
         </div>
 
       </div>
       
       : <div className="info-display edit">
       <div>
-        First Name: <input name="new_first_name" 
-                            type="text" 
-                            placeholder={correctClient.first_name} 
-                            onChange={ e => this.handleInput(e) } 
-                            />
+         <TextField
+            defaultValue={correctClient.first_name}
+            label="First name"
+            variant="filled"
+            name="new_first_name"  
+            placeholder={correctClient.first_name} 
+            onChange={ e => this.handleInput(e) } 
+            />
       </div>
       <div>
-        Last Name: <input name="new_last_name" 
-                          type="text" 
-                          placeholder={correctClient.last_name} 
-                          onChange={ e => this.handleInput(e) } 
-                          />
+        <TextField 
+          label="Last name"
+          defaultValue={`${correctClient.last_name}`}
+          variant="filled"
+          name="new_last_name" 
+          placeholder={correctClient.last_name} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div> 
-        Client of: <input name="new_client_of" 
-                          type="text" 
-                          placeholder={correctClient.client_of}  
-                          onChange={ e => this.handleInput(e) } 
-                          />
+        <TextField 
+          label="Client of"
+          defaultValue={`${correctClient.client_of}`}
+          variant="filled"
+          name="new_client_of" 
+          placeholder={correctClient.client_of}  
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div>
-        Phone: <input name="new_phone_number" 
-                      type="text" 
-                      placeholder={correctClient.phone_number} 
-                      onChange={ e => this.handleInput(e) } 
-                      />
+        <TextField 
+          label="Phone number"
+          defaultValue={`${correctClient.phone_number}`}
+          variant="filled"
+          name="new_phone_number" 
+          placeholder={correctClient.phone_number} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div>
-        Email: <input name="new_email" 
-                      type="text" 
-                      placeholder={correctClient.email} 
-                      onChange={ e => this.handleInput(e) } 
-                      />
+        <TextField 
+          label="Email"
+          defaultValue={`${correctClient.email}`}
+          required
+          variant="filled"
+          name="new_email" 
+          type="email"
+          placeholder={correctClient.email} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div> 
       <div>
-        Notes: <input name="new_notes" 
-                      type="text" 
-                      placeholder={correctClient.notes} 
-                      onChange={ e => this.handleInput(e) } 
-                      />
+        <TextField 
+          label="Notes"
+          defaultValue={`${correctClient.notes}`}
+          variant="filled"
+          name="new_notes" 
+          multiline
+          rows="6"
+          fullWidth
+          placeholder={correctClient.notes} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div>
-        Street Address: <input name="new_street_address" 
-                              type="text" 
-                              placeholder={correctClient.street_address}
-                              onChange={ e => this.handleInput(e) }  
-                              />
+        <TextField 
+          label="Street address"
+          defaultValue={`${correctClient.street_address}`}
+          variant="filled"
+          name="new_street_address" 
+          placeholder={correctClient.street_address}
+          onChange={ e => this.handleInput(e) }  
+          />
       </div> 
       <div>
-        City: <input name="new_city" 
-                      type="text" 
-                      placeholder={correctClient.city} 
-                      onChange={ e => this.handleInput(e) } 
-                      />
+        <TextField 
+          label="City"
+          defaultValue={`${correctClient.city}`}
+          variant="filled"
+          name="new_city" 
+          placeholder={correctClient.city} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div>
-        Zip Code: <input name="new_zip_code" 
-                          type="text" 
-                          placeholder={correctClient.zip_code} 
-                          onChange={ e => this.handleInput(e) } 
-                          />
+        <TextField 
+          label="State"
+          defaultValue={`${correctClient.state}`}
+          variant="filled"
+          name="new_state" 
+          placeholder={correctClient.state} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div>
-        State: <input name="new_state" 
-                      type="text" 
-                      placeholder={correctClient.state} 
-                      onChange={ e => this.handleInput(e) } 
-                      />
+        <TextField 
+          label="Zip code"
+          defaultValue={`${correctClient.zip_code}`}
+          variant="filled"
+          name="new_zip_code" 
+          placeholder={correctClient.zip_code} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div>
-        Country: <input name="new_country" 
-                        type="text" 
-                        placeholder={correctClient.country} 
-                        onChange={ e => this.handleInput(e) } 
-                        />
+        <TextField 
+          label="Country"
+          defaultValue={`${correctClient.country}`}
+          variant="filled"
+          name="new_country" 
+          placeholder={correctClient.country} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div>
       <div>
-        Birthday <input name="new_birthday" 
-                        type="text" 
-                        placeholder={correctClient.birthday} 
-                        onChange={ e => this.handleInput(e) } 
-                        />
+        <TextField 
+          label="Birth date"
+          defaultValue={`${correctClient.birthday}`}
+          variant="filled"
+          name="new_birthday" 
+          type="date"
+          placeholder={correctClient.birthday} 
+          onChange={ e => this.handleInput(e) } 
+          />
       </div> 
 
         <button className="button" onClick={ e => this.handleSave(e)}>Save</button>
@@ -197,7 +237,7 @@ render() {
 
 
 
-        
+      </Paper>     
     </div>
   )
 }

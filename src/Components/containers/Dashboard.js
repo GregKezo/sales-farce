@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import Auth from '../Auth'
-import {withRouter, Redirect, Link} from 'react-router-dom'
+import React from 'react'
+import {withRouter, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import ClientCard from './ClientCard'
 import { getUser } from '../../redux/reducers/userReducer'
 import { getClients } from '../../redux/reducers/clientReducer'
-import Grid from '@material-ui/core/Grid'
+import {Grid, Button} from '@material-ui/core/'
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -29,16 +28,26 @@ class Dashboard extends React.Component {
     if (!Object.keys(user).length) return <div>Loading</div>
     
     let mappedClients = this.props.client.clients.map( (ele) => {
-      return <ClientCard key={ele.id} ele={ele} />
+      return (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={ele.id}>
+          <ClientCard ele={ele} />
+        </Grid>  
+      
+        )
     })
 
   return(
     
     <div className="dashboard">
-      <Link to='/new'>Add New</Link>
-        <Grid container spacing={1} xs={12} sm={8} md={6} lg={4} xl={4}>
-          {mappedClients}
-        </Grid>
+      <Button 
+        onClick={ e => this.props.history.push('/new')} 
+        variant="contained"
+        color="secondary">
+        Add New
+      </Button>
+      <Grid container spacing={2} >
+        {mappedClients}
+      </Grid>
 
     </div>
   )
