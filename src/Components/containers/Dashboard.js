@@ -40,6 +40,7 @@ class Dashboard extends React.Component {
     
     <div className="dashboard">
       <Button 
+        className="spacing"
         onClick={ e => this.props.history.push('/new')} 
         variant="contained"
         color="secondary">

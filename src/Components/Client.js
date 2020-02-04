@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter} from 'react-router-dom'
 import axios from 'axios'
 import {Paper, TextField, Button} from '@material-ui/core/'
+import { red } from '@material-ui/core/colors'
 
 
 class Client extends React.Component {
@@ -50,11 +51,15 @@ render() {
     <div className="auth-box">
       <Paper>
 
-      <p>{correctClient.first_name}</p>
 
-      <button className='button' onClick={ () => this.toggleEdit()}>
-        {!this.state.edit ? <span>Edit</span> : <span>Cancel</span>}
-      </button>
+      <Button 
+        className="spacing"
+        onClick={ () => this.toggleEdit() } 
+        variant="contained"
+        color="secondary">
+          {!this.state.edit ? <span>Edit</span> : <span>Cancel</span>}
+      </Button>
+
 
       {!this.state.edit
         ? <div className="info-display edit">
@@ -103,6 +108,7 @@ render() {
          <TextField
             defaultValue={correctClient.first_name}
             label="First name"
+            style={{minWidth: 450, margin: 10}}
             variant="filled"
             name="new_first_name"  
             placeholder={correctClient.first_name} 
@@ -113,6 +119,7 @@ render() {
         <TextField 
           label="Last name"
           defaultValue={`${correctClient.last_name}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_last_name" 
           placeholder={correctClient.last_name} 
@@ -123,6 +130,7 @@ render() {
         <TextField 
           label="Client of"
           defaultValue={`${correctClient.client_of}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_client_of" 
           placeholder={correctClient.client_of}  
@@ -133,6 +141,7 @@ render() {
         <TextField 
           label="Phone number"
           defaultValue={`${correctClient.phone_number}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_phone_number" 
           placeholder={correctClient.phone_number} 
@@ -144,6 +153,7 @@ render() {
           label="Email"
           defaultValue={`${correctClient.email}`}
           required
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_email" 
           type="email"
@@ -155,11 +165,11 @@ render() {
         <TextField 
           label="Notes"
           defaultValue={`${correctClient.notes}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_notes" 
           multiline
           rows="6"
-          fullWidth
           placeholder={correctClient.notes} 
           onChange={ e => this.handleInput(e) } 
           />
@@ -168,6 +178,7 @@ render() {
         <TextField 
           label="Street address"
           defaultValue={`${correctClient.street_address}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_street_address" 
           placeholder={correctClient.street_address}
@@ -178,6 +189,7 @@ render() {
         <TextField 
           label="City"
           defaultValue={`${correctClient.city}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_city" 
           placeholder={correctClient.city} 
@@ -188,6 +200,7 @@ render() {
         <TextField 
           label="State"
           defaultValue={`${correctClient.state}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_state" 
           placeholder={correctClient.state} 
@@ -198,6 +211,7 @@ render() {
         <TextField 
           label="Zip code"
           defaultValue={`${correctClient.zip_code}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_zip_code" 
           placeholder={correctClient.zip_code} 
@@ -208,6 +222,7 @@ render() {
         <TextField 
           label="Country"
           defaultValue={`${correctClient.country}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_country" 
           placeholder={correctClient.country} 
@@ -218,6 +233,7 @@ render() {
         <TextField 
           label="Birth date"
           defaultValue={`${correctClient.birthday}`}
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_birthday" 
           type="date"
@@ -226,8 +242,22 @@ render() {
           />
       </div> 
 
-        <button className="button" onClick={ e => this.handleSave(e)}>Save</button>
-        <button className="button" onClick={ e => this.handleDelete(e)}>Delete</button>
+      <Button 
+            className="spacing" 
+            onClick={ e => this.handleSave(e)}
+            variant="contained"
+            color="secondary">
+              Save
+          </Button>
+
+
+          <Button 
+            className="spacing" 
+            onClick={ e => this.handleDelete(e)}
+            variant="contained"
+            color="#f44336">
+              Delete
+          </Button>
 
     </div>
     

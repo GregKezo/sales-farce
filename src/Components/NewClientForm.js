@@ -36,14 +36,19 @@ render() {
   return(
     <Paper className="auth-box">
      <div className="info-display edit">
-     <Link to ='/'>
-            <button className="button">
-              Cancel
-            </button>
-          </Link>
+     
+     <Button 
+        className="spacing"
+        onClick={ e => this.props.history.push('/')} 
+        variant="contained"
+        color="secondary">
+          Cancel
+      </Button>
+          
       <div>
         <TextField
           label="First name"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_first_name" 
           required 
@@ -53,6 +58,7 @@ render() {
       <div>
         <TextField 
           label="Last name"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_last_name" 
           required
@@ -62,15 +68,25 @@ render() {
       <div> 
         <TextField 
           label="Client of"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_client_of" 
           required
           onChange={ e => this.handleInput(e) } 
           />
-      </div>
+      </div> 
+      
+      
+      {/* make ^^^^^^^^^^^^^^^
+      this a drop
+       down menu with 
+       names JOIN */}
+      
+     
       <div>
         <TextField 
           label="Phone number"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_phone_number" 
           onChange={ e => this.handleInput(e) } 
@@ -80,6 +96,7 @@ render() {
         <TextField 
           label="Email"
           required
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_email" 
           type="email"
@@ -90,17 +107,18 @@ render() {
       <div>
         <TextField 
           label="Notes"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_notes" 
           multiline
           rows="6"
-          fullWidth
           onChange={ e => this.handleInput(e) } 
           />
       </div>
       <div>
         <TextField 
           label="Street address"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_street_address" 
           onChange={ e => this.handleInput(e) }  
@@ -109,6 +127,7 @@ render() {
       <div>
         <TextField 
           label="City"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_city" 
           onChange={ e => this.handleInput(e) } 
@@ -117,6 +136,7 @@ render() {
       <div>
         <TextField 
           label="State"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_state" 
           onChange={ e => this.handleInput(e) } 
@@ -125,6 +145,7 @@ render() {
       <div>
         <TextField 
           label="Zip code"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_zip_code" 
           onChange={ e => this.handleInput(e) } 
@@ -133,6 +154,7 @@ render() {
       <div>
         <TextField 
           label="Country"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_country" 
           onChange={ e => this.handleInput(e) } 
@@ -141,6 +163,7 @@ render() {
       <div>
         <TextField 
           label="Birth date"
+          style={{minWidth: 450, margin: 10}}
           variant="filled"
           name="new_birthday" 
           type="date"
@@ -151,7 +174,13 @@ render() {
 
 
 
-          <button className="button" onClick={ e => this.handleSave(e)}>Save</button>
+          <Button 
+            className="spacing" 
+            onClick={ e => this.handleSave(e)}
+            variant="contained"
+            color="secondary">
+              Save
+          </Button>
           
       </div>
     </Paper>

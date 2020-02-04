@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter, Redirect } from 'react-router-dom'
 import { getUser, login, signup } from '../redux/reducers/userReducer'
 import { getClients } from '../redux/reducers/clientReducer'
-import {TextField, Container, Button, Typography} from '@material-ui/core'
+import {TextField, Container, Button, Typography, Grid} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
