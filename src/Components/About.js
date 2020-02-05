@@ -42,19 +42,21 @@ class About extends Component {
     return(
 
       <Grid container spacing={2}>
-        <Grid item  xs={12} sm={6} md={4} lg={3} >
-          <img 
-            src="https://sales-farce.s3-us-west-1.amazonaws.com/geo-metro.jpeg" 
-            alt="geo metro"
-            className='car'
-            />
-          Trying to save up for this bad boy
-        </Grid>
+
+          <Grid item  xs={12} sm={8} md={6} lg={5} >
+            <img 
+              src="https://sales-farce.s3-us-west-1.amazonaws.com/geo-metro.jpeg" 
+              alt="geo metro"
+              className='car'
+              />
+          </Grid>
+          <Grid item xs={12} sm={4} md={6} lg={7}>
+            Trying to save up for this bad boy.  Lorem ipsum dolor amet vaporware shabby chic vinyl, single-origin coffee tumblr kogi sustainable tote bag. Raw denim ugh fam, tofu cardigan letterpress selvage authentic selfies farm-to-table yr art party. Actually bicycle rights fixie fashion axe lyft pabst post-ironic. PBR&B prism blog listicle jianbing. Kickstarter vice man braid shoreditch. Chillwave waistcoat biodiesel VHS, ramps gluten-free adaptogen hot chicken vape heirloom pickled keffiyeh. Sriracha leggings blue bottle skateboard slow-carb thundercats air plant unicorn snackwave chia aesthetic venmo trust fund.
+            </Grid>
 
 
 
-
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} sm={12} md={6} lg={4}>
           <div style={{display:'flex',flexDirection:'column', alignItems:'center', marginTop:'50px'}}>
             <StripeCheckout
               name='Donation' //header

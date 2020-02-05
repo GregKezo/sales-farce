@@ -121,17 +121,18 @@
   -ms-flex-pack: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: #fff;
+  /* align-items: center; */
+  /* color: #fff; */
 }
 
 .auth_container {
-  border-radius: 8px;
-  -webkit-box-shadow: 0 14px 28px 0 rgba(0,0,0,.25), 0 10px 10px 0 rgba(0,0,0,.26);
+  /* border-radius: 8px; */
+  /* -webkit-box-shadow: 0 14px 28px 0 rgba(0,0,0,.25), 0 10px 10px 0 rgba(0,0,0,.26);
   box-shadow: 0 14px 28px 0 rgba(0,0,0,.25), 0 10px 10px 0 rgba(0,0,0,.26);
+  width: 35vw; 
+  */
   background-image: linear-gradient(97deg,#eceff1,#b0bec5);
-  width: 35vw;
-  height: 55vh;
+  height: 55vh; 
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
