@@ -2,7 +2,7 @@ require('dotenv').config({path: __dirname + '/../.env' })
 const express = require('express')
 const app = express()
 const gs = require('gradient-string')
-const { SERVER_PORT, DATABASE_URL, SESSION_SECRET, REACT_APP_STRIPE_KEY, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env
+const { SERVER_PORT, DATABASE_URL, SESSION_SECRET,  S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env
 const massive = require('massive')
 const session = require('express-session')
 const authCtrl = require('./controllers/authController')
@@ -12,7 +12,7 @@ const authCheck = require('./middleware/authCheck')
 const initSession = require('./middleware/initSession')
 
 const aws = require('aws-sdk')
-
+app.use( express.static( `${__dirname}/../build` ) );
 
 
 

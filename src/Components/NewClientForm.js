@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import axios from 'axios'
 import {Paper, TextField, Button} from '@material-ui/core/'
 
@@ -100,7 +100,6 @@ render() {
           variant="filled"
           name="email" 
           type="email"
-          required
           onChange={ e => this.handleInput(e) } 
           />
       </div> 

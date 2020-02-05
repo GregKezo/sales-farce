@@ -1,7 +1,7 @@
 import React, { Component }  from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
-import {Grid, TextField, Button} from '@material-ui/core/'
+import {Grid, TextField} from '@material-ui/core/'
 
 let publishableKey = 'pk_test_ubicab0NdjoIHoCJCJts0e6y00c1XlFoxw' //stripe publishable key
 
@@ -93,5 +93,3 @@ class About extends Component {
 }
 
 export default About
-
-const imageUrl = "https://sales-farce.s3-us-west-1.amazonaws.com/squid.jpg"
